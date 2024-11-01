@@ -517,6 +517,9 @@ function registers.clear_highlighted_register(options)
         -- Clear the register
         vim.fn.setreg(register_info.register, '')
 
+		-- Make the change persistent by writing to shada file
+		vim.cmd("wshada!")
+
         -- Fill the registers again
         registers._read_registers()
 
